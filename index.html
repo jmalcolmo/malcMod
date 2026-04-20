@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Malcolm - A Portfolio</title>
+  <meta name="description" content="Portfolio of Malcolm's projects likely done by claude." />
+
+  <!-- Fonts: UnifrakturMaguntia (blackletter) · Cinzel (roman gothic) · Cormorant Garamond (body serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       GRAIN OVERLAY — sits above everything, under 1% opacity feel
+       ============================================================ -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAV — thin fixed header
+       ============================================================ -->
+  <header class="nav">
+    <a href="#top" class="nav__brand">Don't click this</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#works">Works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       SIDE RAIL — Roman numerals showing current project
+       Auto-populates via JS based on projects below
+       ============================================================ -->
+  <aside class="rail" aria-hidden="true">
+    <span class="rail__line"></span>
+    <ol class="rail__list" id="rail-list"></ol>
+  </aside>
+
+  <main id="top">
+
+    <!-- ============================================================
+         HERO — oversized blackletter name, minimal tagline
+         ----------------------------------------------------------
+         OPTIONAL HERO BACKGROUND IMAGE:
+         Place at: images/hero/hero-bg.png
+         (Leave empty for pure black atmospheric feel.)
+         ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" style="background-image: url('images/hero/hero-bg.png');"></div>
+      <div class="hero__veil"></div>
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Stuff that I have done</p>
+        <h1 class="hero__title">
+          <span class="hero__title-line">Malcolm</span>
+          <span class="hero__title-line hero__title-line--accent">Olexa</span>
+        </h1>
+        <p class="hero__sub">
+          Enjoy, but don't ask. I probably don't know the answer.
+        </p>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-text">↓ descend</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WORKS — scroll-snapping project panels
+         ----------------------------------------------------------
+         Each <article class="project"> is a full-screen panel.
+         Click the panel (or its button) to open the gallery modal.
+         ADD / REMOVE / REORDER projects freely. The side rail
+         (roman numerals) auto-generates from these.
+         ============================================================ -->
+    <section class="works" id="works">
+
+      <!-- ============================================================
+           PROJECT I
+           IMAGES TO ADD:
+             Cover (shown on this panel):
+               → images/projects/project-01/cover.png
+             Gallery (shown after clicking):
+               → images/projects/project-01/01.png
+               → images/projects/project-01/02.png
+               → images/projects/project-01/03.png
+               → images/projects/project-01/04.png
+           ============================================================ -->
+      <article class="project"
+               data-project="01"
+               data-title="File Not Found"
+               data-year="2026"
+               data-tag="Web Game">
+        <div class="project__img">
+          <img src="images/projects/project-01/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">I</span>
+          <h2 class="project__title">File Not Found</h2>
+          <p class="project__meta">Web Game · 2026</p>
+          <button class="project__cta" type="button" aria-label="Open project I">
+            <span>Start Red Hatting</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           PROJECT II
+           IMAGES TO ADD:
+             Cover: images/projects/project-02/cover.png
+             Gallery:
+               images/projects/project-02/01.png
+               images/projects/project-02/02.png
+               images/projects/project-02/03.png
+               images/projects/project-02/04.png
+           ============================================================ -->
+      <article class="project"
+               data-project="02"
+               data-title="Minecraft Food Mod"
+               data-year="2026"
+               data-tag="Modding">
+        <div class="project__img">
+          <img src="images/projects/project-02/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">II</span>
+          <h2 class="project__title">Minecraft Food Mod</h2>
+          <p class="project__meta">Modding · 2026</p>
+          <button class="project__cta" type="button" aria-label="Grab a statue core">
+            <span>Grab a statue core</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           PROJECT III
+           IMAGES TO ADD:
+             Cover: images/projects/project-03/cover.png
+             Gallery:
+               images/projects/project-03/01.png
+               images/projects/project-03/02.png
+               images/projects/project-03/03.png
+               images/projects/project-03/04.png
+           ============================================================ -->
+      <article class="project"
+               data-project="03"
+               data-title="The Third Work"
+               data-year="2025"
+               data-tag="Illustration">
+        <div class="project__img">
+          <img src="images/projects/project-03/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">III</span>
+          <h2 class="project__title">The Third Work</h2>
+          <p class="project__meta">Illustration · 2025</p>
+          <button class="project__cta" type="button" aria-label="Open project III">
+            <span>Enter</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           PROJECT IV
+           IMAGES TO ADD:
+             Cover: images/projects/project-04/cover.png
+             Gallery:
+               images/projects/project-04/01.png
+               images/projects/project-04/02.png
+               images/projects/project-04/03.png
+               images/projects/project-04/04.png
+           ============================================================ -->
+      <article class="project"
+               data-project="04"
+               data-title="The Fourth Work"
+               data-year="2025"
+               data-tag="Film">
+        <div class="project__img">
+          <img src="images/projects/project-04/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">IV</span>
+          <h2 class="project__title">The Fourth Work</h2>
+          <p class="project__meta">Film · 2025</p>
+          <button class="project__cta" type="button" aria-label="Open project IV">
+            <span>Enter</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           PROJECT V
+           IMAGES TO ADD:
+             Cover: images/projects/project-05/cover.png
+             Gallery:
+               images/projects/project-05/01.png
+               images/projects/project-05/02.png
+               images/projects/project-05/03.png
+               images/projects/project-05/04.png
+           ============================================================ -->
+      <article class="project"
+               data-project="05"
+               data-title="The Fifth Work"
+               data-year="2025"
+               data-tag="Sculpture">
+        <div class="project__img">
+          <img src="images/projects/project-05/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">V</span>
+          <h2 class="project__title">The Fifth Work</h2>
+          <p class="project__meta">Sculpture · 2025</p>
+          <button class="project__cta" type="button" aria-label="Open project V">
+            <span>Enter</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           PROJECT VI
+           IMAGES TO ADD:
+             Cover: images/projects/project-06/cover.png
+             Gallery:
+               images/projects/project-06/01.png
+               images/projects/project-06/02.png
+               images/projects/project-06/03.png
+               images/projects/project-06/04.png
+           ============================================================ -->
+      <article class="project"
+               data-project="06"
+               data-title="The Sixth Work"
+               data-year="2026"
+               data-tag="Mixed Media">
+        <div class="project__img">
+          <img src="images/projects/project-06/cover.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <div class="project__content">
+          <span class="project__num">VI</span>
+          <h2 class="project__title">The Sixth Work</h2>
+          <p class="project__meta">Mixed Media · 2026</p>
+          <button class="project__cta" type="button" aria-label="Open project VI">
+            <span>Enter</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </button>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ============================================================
+         ABOUT — short bio, portrait
+         ----------------------------------------------------------
+         PORTRAIT IMAGE:
+         Place at: images/about/portrait.png
+         (Square or 4:5 portrait orientation works best.)
+         ============================================================ -->
+    <section class="about" id="about">
+      <div class="about__portrait">
+        <img src="images/about/portrait.png" alt="Portrait" onerror="this.style.display='none'" />
+      </div>
+      <div class="about__text">
+        <p class="about__eyebrow">— About</p>
+        <h2 class="about__title">Of the Maker</h2>
+        <p class="about__body">
+          A brief account of the one who made these works. Edit this text
+          in <code>index.html</code> — keep it short, let the work speak.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT — minimal
+         ============================================================ -->
+    <section class="contact" id="contact">
+      <p class="contact__eyebrow">— Correspondence</p>
+      <h2 class="contact__title">To commission,<br />or merely to speak.</h2>
+      <a class="contact__email" href="mailto:you@domain.com">you@domain.com</a>
+      <ul class="contact__social">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Are.na</a></li>
+        <li><a href="#">Vimeo</a></li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      <span>© MMXXVI · All rites reserved.</span>
+      <span class="foot__mark">✦</span>
+    </footer>
+
+  </main>
+
+  <!-- ============================================================
+       PROJECT MODAL — populated + animated by JS on click
+       Gallery images are loaded from the paths shown in the
+       HTML comments for each project above.
+       ============================================================ -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal__backdrop" data-close></div>
+
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" data-close aria-label="Close">
+        <span class="modal__close-line"></span>
+        <span class="modal__close-line"></span>
+      </button>
+
+      <header class="modal__head">
+        <span class="modal__num" id="modal-num">I</span>
+        <h2 class="modal__title" id="modal-title">—</h2>
+        <p class="modal__meta" id="modal-meta">—</p>
+      </header>
+
+      <div class="modal__gallery" id="modal-gallery">
+        <!-- gallery items injected by JS -->
+      </div>
+
+      <nav class="modal__nav" aria-label="Project navigation">
+        <button class="modal__nav-btn" type="button" data-nav="prev">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span>Previous</span>
+        </button>
+        <button class="modal__nav-btn" type="button" data-nav="next">
+          <span>Next</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>
