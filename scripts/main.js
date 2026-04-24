@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const img = document.createElement('img');
       img.src = imagePath;
       img.alt = `${title} gallery image`;
+      img.loading = 'lazy';
+      img.decoding = 'async';
       img.onerror = () => item.remove();
       item.appendChild(img);
       modalGallery.appendChild(item);
