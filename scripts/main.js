@@ -5,9 +5,54 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalTitle = document.getElementById('modal-title');
   const modalMeta = document.getElementById('modal-meta');
   const modalGallery = document.getElementById('modal-gallery');
+  const aboutPortrait = document.querySelector('.about__portrait');
   const closeButtons = Array.from(document.querySelectorAll('[data-close]'));
   const navButtons = Array.from(document.querySelectorAll('[data-nav]'));
   let currentIndex = 0;
+  let currentGalleryType = 'project';
+
+  function getAboutGalleryImages() {
+    const basePath = 'images/about';
+    return [
+      `${basePath}/portrait.png`,
+      `${basePath}/01.png`,
+      `${basePath}/02.png`,
+      `${basePath}/03.png`,
+      `${basePath}/04.png`,
+      `${basePath}/05.png`,
+      `${basePath}/06.png`
+    ];
+  }
+
+  function renderGallery(images, title, meta) {
+    modalNum.textContent = '';
+    modalTitle.textContent = title;
+    modalMeta.textContent = meta;
+    modalGallery.innerHTML = '';
+
+    images.forEach((imagePath) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      const img = document.createElement('img');
+      img.src = imagePath;
+      img.alt = `${title} image`;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.onerror = () => item.remove();
+      item.appendChild(img);
+      modalGallery.appendChild(item);
+    });
+
+    modal.classList.add('is-open');
+    document.body.classList.add('modal-open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function openAboutGallery() {
+    currentGalleryType = 'about';
+    modal.classList.add('modal--about');
+    renderGallery(getAboutGalleryImages(), 'Portrait gallery', 'About');
+  }
 
   function updateActiveProject(index) {
     projects.forEach((project, idx) => {
@@ -21,6 +66,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openModal(index) {
+    currentGalleryType = 'project';
+    modal.classList.remove('modal--about');
     currentIndex = index;
     const project = projects[currentIndex];
     const projectId = project.dataset.project;
@@ -54,10 +101,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeModal() {
     modal.classList.remove('is-open');
     document.body.classList.remove('modal-open');
+    modal.classList.remove('modal--about');
     modal.setAttribute('aria-hidden', 'true');
   }
 
   function showNextProject(delta) {
+    if (currentGalleryType !== 'project') return;
     const nextIndex = (currentIndex + delta + projects.length) % projects.length;
     openModal(nextIndex);
   }
@@ -89,6 +138,16 @@ document.addEventListener('DOMContentLoaded', () => {
       image.addEventListener('click', () => openModal(index));
     }
   });
+
+  if (aboutPortrait) {
+    aboutPortrait.addEventListener('click', openAboutGallery);
+    aboutPortrait.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openAboutGallery();
+      }
+    });
+  }
 
   closeButtons.forEach((button) => button.addEventListener('click', closeModal));
   navButtons.forEach((button) => {

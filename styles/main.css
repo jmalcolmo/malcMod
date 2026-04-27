@@ -482,6 +482,7 @@ ol, ul { list-style: none; }
   background: var(--bg-card);
   border: 1px solid var(--line);
   overflow: hidden;
+  cursor: pointer;
 }
 .about__portrait::after {
   content: "";
@@ -493,6 +494,18 @@ ol, ul { list-style: none; }
   background-repeat: no-repeat;
   opacity: 0.5;
   z-index: 0;
+}
+.about__portrait:hover::before,
+.about__portrait:focus-visible::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.06);
+  z-index: 2;
+}
+.about__portrait:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 .about__portrait img {
   position: relative;
@@ -713,6 +726,15 @@ ol, ul { list-style: none; }
   gap: clamp(24px, 3vw, 40px);
 }
 
+.modal--about .modal__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: min(35vw, 100%);
+  max-width: 35vw;
+  margin: 0 auto;
+  gap: clamp(24px, 3vw, 40px);
+}
+
 .gallery-item {
   position: relative;
   overflow: hidden;
@@ -758,6 +780,12 @@ ol, ul { list-style: none; }
 
 @media (max-width: 800px) {
   .modal__gallery { width: 100%; max-width: 100%; gap: 24px; }
+  .modal--about .modal__gallery { 
+    width: 100%; 
+    max-width: 100%; 
+    gap: 24px; 
+    grid-template-columns: 1fr; 
+  }
 }
 
 /* Modal nav */
@@ -768,6 +796,10 @@ ol, ul { list-style: none; }
   justify-content: space-between;
   gap: 16px;
   padding-top: 32px;
+}
+.modal.modal--about .modal__nav {
+  display: none;
+}
   border-top: 1px solid var(--line);
 }
 .modal__nav-btn {

@@ -26,6 +26,17 @@ images/about/portrait.jpg
 
 Recommended: 4:5 portrait orientation, desaturated tones work best with the theme.
 
+## 2.1 About gallery
+
+```
+images/about/portrait.png
+images/about/01.png
+images/about/02.png
+images/about/03.png
+```
+
+Use the portrait image as the cover image, then add additional photos for the gallery. Leave missing files out if you want the site to gracefully fall back.
+
 ---
 
 ## 3. Project images
